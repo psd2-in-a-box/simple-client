@@ -1,4 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-h1 {
-    color: red;
+/* Import prebuilt Angular Material theme */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+md-toolbar-row > span {
+    margin-left: 1em;
+    margin-right: 1em;
 }
