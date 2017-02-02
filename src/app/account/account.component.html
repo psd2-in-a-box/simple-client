@@ -2,12 +2,9 @@
     <md-card-header>
         <div md-card-avatar><md-icon color="warn">account_balance</md-icon></div>
         <md-card-title>Account {{account.accountNumber}}</md-card-title>
-        <md-card-subtitle>Balance: {{account.balance}}</md-card-subtitle>
+        <md-card-subtitle>Balance: {{account.balance}} - Credit limit: {{account.creditMax}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
-        <ul>
-            <li>Status: {{account.accountStatus}}</li>
-            <li>Credit limit: {{account.creditMax}}</li>
-        </ul>
+        <md-chip-list><md-chip>{{account.accountStatus}}</md-chip></md-chip-list>
     </md-card-content>
 </md-card>
