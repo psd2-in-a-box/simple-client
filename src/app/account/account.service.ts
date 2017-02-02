@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+
+import { HttpClient } from './http-client';
 
 export interface Account {
     accountNumber: number;
@@ -14,12 +15,11 @@ export class AccountService {
 
     readonly URL = 'http://api.futurefinance.io/api/accounts/4574000000';
 
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
     }
 
     getAccount(): Observable<Account> {
-        let headers = new Headers({ Authorization: 'Basic ' + btoa('user099:TSuNHAWuHYwH') });
-        return this.http.get(this.URL, { headers: headers })
+        return this.http.get(this.URL)
             .map(response => response.json());
     }
 
