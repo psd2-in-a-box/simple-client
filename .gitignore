@@ -38,3 +38,7 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+# Google Cloud Credentials
+FutureFinance-9562e6d23f91.json
+
