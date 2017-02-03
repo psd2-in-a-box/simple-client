@@ -7,6 +7,7 @@ export interface Account {
     accountNo: string;
     name: string;
     regNo: string;
+    balance: number;
 }
 
 @Injectable()
