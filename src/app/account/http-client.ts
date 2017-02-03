@@ -5,9 +5,6 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class HttpClient {
 
-    readonly username = 'user099';
-    readonly password = 'TSuNHAWuHYwH';
-
     constructor(private http: Http) {
     }
 
@@ -24,7 +21,9 @@ export class HttpClient {
     }
 
     private getAuthHeader(): Headers {
-        return new Headers({ Authorization: 'Basic ' + btoa(this.username + ':' + this.password) });
+        return new Headers({
+            Accept: 'application/hal+json'
+        });
     }
 
 }
