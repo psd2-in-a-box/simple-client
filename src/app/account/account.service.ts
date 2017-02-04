@@ -13,7 +13,7 @@ export interface Account {
 @Injectable()
 export class AccountService {
 
-    readonly URL = ' http://localhost:7001/sample/accounts/5479-7654321';
+    readonly URL = 'http://104.155.109.209:8080/accounts/5479-7654321';
 
     constructor(private http: HttpClient) {
     }
