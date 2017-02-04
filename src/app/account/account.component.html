@@ -8,3 +8,11 @@
         Balance: {{account.balance | number:'1.2-2'}}
     </md-card-content>
 </md-card>
+<md-list>
+    <h3 md-subheader>Transactions</h3>
+    <md-list-item *ngFor="let trx of transactions">
+        <md-icon md-list-avatar>payment</md-icon>
+        <h4 md-line>{{trx.amount}}</h4>
+        <p md-line>{{trx.description}}</p>
+    </md-list-item>
+</md-list>

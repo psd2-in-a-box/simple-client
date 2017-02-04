@@ -11,6 +11,12 @@ export interface Account {
     balance: number;
 }
 
+export interface Transaction {
+    amount: number;
+    description: string;
+    id: string;
+}
+
 @Injectable()
 export class AccountService {
 
@@ -27,6 +33,11 @@ export class AccountService {
     getAccounts(): Observable<Account[]> {
         return this.http.get(this.ACCOUNTS_URL)
             .map(response => response.json()._embedded.accounts);
+    }
+
+    getTransactions(account: Account): Observable<Transaction[]> {
+        return this.http.get(this.ACCOUNTS_URL + '/' + account.regNo + '-' + account.accountNo + '/transactions')
+            .map(response => response.json()._embedded.transactions);
     }
 
 }
