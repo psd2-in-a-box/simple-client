@@ -27,7 +27,7 @@ before_script:
 
 script:
   - npm install
-  - ng build
+  - ng build --prod
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
