@@ -1,4 +1,7 @@
+import 'rxjs/add/operator/switchMap';
+
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Account, AccountService } from './account.service';
 
@@ -11,14 +14,13 @@ export class AccountComponent implements OnInit {
 
     account: Account = {} as Account;
 
-    constructor(private accountService: AccountService) {
+    constructor(private route: ActivatedRoute, private accountService: AccountService) {
     }
 
     ngOnInit() {
-        this.accountService.getAccount()
-            .subscribe(account => {
-                this.account = account;
-            });
+    this.route.params
+        .switchMap(params => this.accountService.getAccount(params['id']))
+        .subscribe(account => this.account = account);
     }
 
 }
