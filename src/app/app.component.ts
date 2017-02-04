@@ -30,9 +30,9 @@ export class AppComponent {
 
     readonly customers: Array<Customer> = [
         {name: 'Jens Peter Knudsen', id: '2412820009'},
-        {name: 'Peter Jensen', id: '24128200035'},
-        {name: 'Adam Pedersen', id: '24128200036'},
-        {name: 'Ida Camille Madsen', id: '24128200037'}
+        {name: 'Peter Jensen', id: '2412820007'},
+        {name: 'Adam Pedersen', id: '2412820008'},
+        {name: 'Ida Camille Madsen', id: '2412820037'}
     ];
 
     @ViewChild(MdSidenav) sidenav: MdSidenav;
