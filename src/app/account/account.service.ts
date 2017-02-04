@@ -21,8 +21,13 @@ export interface Transaction {
 export class AccountService {
 
     readonly ACCOUNTS_URL = BASE_URL + '/accounts';
+    customerId: string;
 
     constructor(private http: HttpClient) {
+    }
+
+    setCustomerId(customerId: string): void {
+        this.customerId = customerId;
     }
 
     getAccount(id): Observable<Account> {
@@ -31,7 +36,7 @@ export class AccountService {
     }
 
     getAccounts(): Observable<Account[]> {
-        return this.http.get(this.ACCOUNTS_URL)
+        return this.http.get(this.ACCOUNTS_URL + '?customer=' + this.customerId)
             .map(response => response.json()._embedded.accounts);
     }
 
