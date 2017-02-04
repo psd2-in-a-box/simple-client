@@ -5,3 +5,9 @@ md-toolbar-row > span {
     margin-left: 1em;
     margin-right: 1em;
 }
+
+html, body, md-sidenav-container {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}

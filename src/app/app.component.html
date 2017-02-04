@@ -1,6 +1,25 @@
-<md-toolbar color="primary">
-    <md-icon color="warn">bubble_chart</md-icon>
-    <span>Future of Finance</span>
-</md-toolbar>
+<md-sidenav-container>
+    <md-toolbar color="primary">
+        <span>Welcome</span>
+    </md-toolbar>
+    <md-sidenav mode="side" opened="true">
+        <md-toolbar color="primary">
+            <md-icon color="warn">bubble_chart</md-icon>
+            <span>Future of Finance</span>
+        </md-toolbar>
+        <md-list class="sidenav-list">
+            <div *ngFor="let menuItem of menuItems">
+                <md-list-item>
+                    <md-icon class="menu-icon">{{menuItem.icon}}</md-icon>
+                    <p>{{menuItem.title}}</p>
+                </md-list-item>
+                <md-divider></md-divider>
+            </div>
+        </md-list>
+    </md-sidenav>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+</md-sidenav-container>
+
+
+
