@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, Input, ViewChild, AfterViewInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {MdSidenav} from "@angular/material";
+
 
 export interface MenuItem {
     icon: string;
     title: string;
+    link: string;
 }
 
 @Component({
@@ -14,10 +17,12 @@ export interface MenuItem {
 export class AppComponent {
 
     readonly menuItems: Array<MenuItem> = [
-        {icon: 'account_balance', title: 'Accounts'},
-        {icon: 'monetization_on', title: 'Transactions'},
-        {icon: 'directions_bike', title: 'other content'},
+        {icon: 'account_balance', title: 'Accounts', link: '/accounts'},
+        {icon: 'monetization_on', title: 'Transactions', link: ''},
+        {icon: 'directions_bike', title: 'other content', link: ''},
     ];
+
+    @ViewChild(MdSidenav) sidenav: MdSidenav;
 
     constructor(private router: Router) {
     }
@@ -31,4 +36,15 @@ export class AppComponent {
         }
         return 'Welcome';
     };
+
+    changeRoute(link: string): void {
+        let links: Array<string> = [link];
+        this.router.navigate(links);
+        this.closeSidenav();
+    }
+
+    private closeSidenav(): void {
+       this.sidenav.close();
+    }
+
 }
