@@ -1,8 +1,10 @@
-<md-list>
-    <h3 md-subheader>Accounts</h3>
-    <md-list-item *ngFor="let account of accounts">
-        <md-icon md-list-avatar>credit_card</md-icon>
-        <h4 md-line><a routerLink="/accounts/{{account.regNo}}-{{account.accountNo}}">{{account.name}}</a></h4>
-        <p md-line>{{account.regNo}}-{{account.accountNo}}</p>
-    </md-list-item>
+<md-list class="background">
+    <div *ngFor="let account of accounts" (click)="changeRoute('/accounts/' + account.regNo + '-' + account.accountNo)">
+        <md-list-item class="clickable">
+            <md-icon md-list-avatar color="primary">credit_card</md-icon>
+            <h4 md-line>{{account.name}}</h4>
+            <p md-line>{{account.regNo}}-{{account.accountNo}}</p>
+        </md-list-item>
+        <md-divider></md-divider>
+    </div>
 </md-list>

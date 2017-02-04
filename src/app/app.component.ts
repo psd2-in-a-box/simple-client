@@ -1,12 +1,18 @@
 import {Component, Input, ViewChild, AfterViewInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MdSidenav} from "@angular/material";
+import {AccountService} from "./account/account.service";
 
 
 export interface MenuItem {
     icon: string;
     title: string;
     link: string;
+}
+
+export interface Customer {
+    name: string;
+    id: string;
 }
 
 @Component({
@@ -17,14 +23,21 @@ export interface MenuItem {
 export class AppComponent {
 
     readonly menuItems: Array<MenuItem> = [
-        {icon: 'account_balance', title: 'Accounts', link: '/accounts'},
+        {icon: 'credit_card', title: 'Accounts', link: '/accounts'},
         {icon: 'monetization_on', title: 'Transactions', link: ''},
         {icon: 'directions_bike', title: 'other content', link: ''},
     ];
 
+    readonly customers: Array<Customer> = [
+        {name: 'Jens Peter Knudsen', id: '2412820009'},
+        {name: 'Peter Jensen', id: '24128200035'},
+        {name: 'Adam Pedersen', id: '24128200036'},
+        {name: 'Ida Camille Madsen', id: '24128200037'}
+    ];
+
     @ViewChild(MdSidenav) sidenav: MdSidenav;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private accountService: AccountService) {
     }
 
     getNavigationTitle(): string {
@@ -41,6 +54,11 @@ export class AppComponent {
         let links: Array<string> = [link];
         this.router.navigate(links);
         this.closeSidenav();
+    }
+
+    chooseCustomer(selectedCustomerId): void {
+        this.accountService.setCustomerId(selectedCustomerId);
+        this.changeRoute('');
     }
 
     private closeSidenav(): void {
