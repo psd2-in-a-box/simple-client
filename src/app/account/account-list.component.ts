@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Account, AccountService } from './account.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-account-list',
@@ -11,7 +12,7 @@ export class AccountListComponent implements OnInit {
 
     accounts: Account[] = [];
 
-    constructor(private accountService: AccountService) {
+    constructor(private accountService: AccountService, private router: Router) {
     }
 
     ngOnInit() {
@@ -19,6 +20,11 @@ export class AccountListComponent implements OnInit {
             .subscribe(accounts => {
                 this.accounts = accounts;
             });
+    }
+
+    changeRoute(link: string): void {
+        let links: Array<string> = [link];
+        this.router.navigate(links);
     }
 
 }
