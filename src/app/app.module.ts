@@ -8,6 +8,7 @@ import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {AccountModule} from "./account/account.module";
 import {WelcomeModule} from "./welcome/welcome.module";
+import {KivaModule} from "./kiva/kiva.module";
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import {WelcomeModule} from "./welcome/welcome.module";
         MaterialModule.forRoot(),
         AppRoutingModule,
         AccountModule,
-        WelcomeModule
+        WelcomeModule,
+        KivaModule
     ],
     providers: [],
     bootstrap: [AppComponent]
