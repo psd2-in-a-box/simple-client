@@ -27,15 +27,15 @@ before_script:
 
 script:
   - npm install
-  - ng build
+  - ng build --prod
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker build -t ng-seed -t gcr.io/$PROJECT_ID/ng-seed:$TRAVIS_COMMIT .;
+      docker build -t simple-client -t gcr.io/$PROJECT_ID/simple-client:$TRAVIS_COMMIT .;
     fi
 
 deploy:
   provider: script
-  script: scripts/deploy.sh gcr.io/$PROJECT_ID/ng-seed:$TRAVIS_COMMIT
+  script: scripts/deploy.sh gcr.io/$PROJECT_ID/simple-client:$TRAVIS_COMMIT
   on:
     branch: master
