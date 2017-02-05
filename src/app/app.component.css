@@ -7,7 +7,7 @@ md-list.sidenav-list {
 md-toolbar md-select {
     font-size: 16px;
 }
-md-toolbar div.login {
+md-toolbar button.login {
     margin-left: auto;
     margin-right: 20px;
 }
