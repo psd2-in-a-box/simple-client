@@ -5,14 +5,14 @@
         <md-card-subtitle>{{account.regNo}}-{{account.accountNo}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
-        Balance: {{account.balance | number:'1.2-2'}}
+        Balance: <span [ngClass]="isNegative(account.balance) ? 'balance-negative' : ''">{{account.balance | number:'1.2-2'}}</span>
     </md-card-content>
 </md-card>
 <md-list class="background">
     <h3 md-subheader>Transactions</h3>
     <md-list-item *ngFor="let trx of transactions">
         <md-icon md-list-avatar>compare_arrows</md-icon>
-        <h4 md-line>{{trx.amount}}</h4>
+        <h4 md-line [ngClass]="isNegative(trx.amount) ? 'balance-negative' : ''">{{trx.amount}}</h4>
         <p md-line>{{trx.description}}</p>
     </md-list-item>
 </md-list>

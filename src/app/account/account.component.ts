@@ -28,4 +28,7 @@ export class AccountComponent implements OnInit {
             });
     }
 
+    isNegative(amount: string): boolean {
+        return Number(amount).valueOf() < 0;
+    }
 }
