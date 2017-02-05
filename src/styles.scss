@@ -4,11 +4,76 @@
 // Include non-theme styles for core.
 @include md-core();
 
+$md-green1: (
+    50 : #e5ece7,
+    100 : #bdd0c2,
+    200 : #91b099,
+    300 : #659070,
+    400 : #447952,
+    500 : #236133,
+    600 : #1f592e,
+    700 : #1a4f27,
+    800 : #154520,
+    900 : #0c3314,
+    A100 : #6eff8a,
+    A200 : #3bff60,
+    A400 : #08ff37,
+    A700 : #00ee2d,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-green2: (
+    50 : #ecf4e8,
+    100 : #d0e4c6,
+    200 : #b1d2a0,
+    300 : #92c07a,
+    400 : #7ab35e,
+    500 : #63a541,
+    600 : #5b9d3b,
+    700 : #519332,
+    800 : #478a2a,
+    900 : #35791c,
+    A100 : #c6ffb4,
+    A200 : #a0ff81,
+    A400 : #79ff4e,
+    A700 : #66ff35,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
 // Define a theme.
-$primary: md-palette($md-indigo, 900, 50, 500);
-$accent:  md-palette($md-teal, 500);
+$primary: md-palette($md-green1);
+$accent: md-palette($md-green2);
 $theme: md-light-theme($primary, $accent);
-$color-background-hue-1: #f5f5f5; //grey-100
 
 // Include all theme styles for the components.
 @include angular-material-theme($theme);
@@ -26,8 +91,4 @@ html, body, md-sidenav-container {
 
 .clickable {
     cursor: pointer;
-}
-
-md-sidenav.background, md-list.background, md-card.background {
-    background-color: $color-background-hue-1;
 }
