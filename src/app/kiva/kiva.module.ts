@@ -4,8 +4,10 @@ import { MaterialModule } from '@angular/material';
 
 import { KivaSignupComponent } from './kiva-signup.component';
 import { KivaLoansComponent } from './kiva-loans.component';
+import { KivaLendComponent } from './kiva-lend.component';
 import { KivaRoutingModule } from './kiva-routing.module';
 import { AccountService } from '../account/account.service';
+import { KivaService } from './kiva.service';
 
 @NgModule({
     imports: [
@@ -15,8 +17,9 @@ import { AccountService } from '../account/account.service';
     ],
     declarations: [
         KivaSignupComponent,
-        KivaLoansComponent
+        KivaLoansComponent,
+        KivaLendComponent
     ],
-    providers: [AccountService]
+    providers: [AccountService, KivaService]
 })
 export class KivaModule { }

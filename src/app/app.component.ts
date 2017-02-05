@@ -24,8 +24,8 @@ export class AppComponent {
 
     readonly menuItems: Array<MenuItem> = [
         {icon: 'credit_card', title: 'Accounts', link: '/accounts'},
-        {icon: 'monetization_on', title: 'Transactions', link: ''},
-        {icon: 'directions_bike', title: 'Kiva', link: '/signup'},
+        {icon: 'monetization_on', title: 'Kiva Loans', link: '/loans'},
+        {icon: 'directions_bike', title: 'Kiva Signup', link: '/signup'},
     ];
 
     readonly customers: Array<Customer> = [

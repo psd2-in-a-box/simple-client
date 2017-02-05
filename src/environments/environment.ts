@@ -8,3 +8,5 @@ export const environment = {
 };
 
 export const BASE_URL = 'http://localhost:7001/sample';
+
+export const KIVA_URL = 'http://api.kivaws.org/v1/loans/';
