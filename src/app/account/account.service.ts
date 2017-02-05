@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 
 import { BASE_URL } from '../../environments/environment';
@@ -14,6 +14,7 @@ export interface Account {
 
 export interface Transaction {
     amount: number;
+    timestamp: number;
     description: string;
     id: string;
 }
@@ -49,11 +50,22 @@ export class AccountService {
 
     getTransactionEvents(account: Account): Observable<Transaction> {
         return Observable.create(observer => {
-            this.getTransactions(account).subscribe(transactions => {
-                for (let transaction of transactions) {
-                    observer.next(transaction);
-                }
-            });
+            let latest = { timestamp: 0 };
+            Observable
+                .timer(1, 5000)
+                .subscribe(x => {
+                    this.getTransactions(account).subscribe(transactions => {
+                        transactions.reverse();
+                        for (let transaction of transactions) {
+                            console.log("tx: " + transaction.timestamp);
+                            if (transaction.timestamp > latest.timestamp) {
+                                console.log(transaction);
+                                observer.next(transaction);
+                                latest.timestamp = transaction.timestamp;
+                            }
+                        }
+                    });                    
+                });
         });
     }
 

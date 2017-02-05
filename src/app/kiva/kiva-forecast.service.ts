@@ -15,7 +15,7 @@ export class KivaForecastService {
     getForecast(account: Account): Observable<number> {
         return this.accountService.getTransactionEvents(account)
             .map(transaction => Number(transaction.amount))
-            .filter(amount => amount > 0)
+            .filter(amount => amount < 0)
             .map(amount => Math.ceil(amount) - amount)
             .scan((total, amount) => total + amount, 0);
     }
