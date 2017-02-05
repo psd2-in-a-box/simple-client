@@ -50,18 +50,11 @@ export class AppComponent {
         return 'Welcome';
     };
 
-    changeRoute(link: string): void {
-        let links: Array<string> = [link];
-        this.router.navigate(links);
-        this.closeSidenav();
-    }
-
     chooseCustomer(selectedCustomerId): void {
         this.accountService.setCustomerId(selectedCustomerId);
-        this.changeRoute('');
     }
 
-    private closeSidenav(): void {
+    public closeSidenav(): void {
        this.sidenav.close();
     }
 

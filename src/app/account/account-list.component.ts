@@ -21,10 +21,4 @@ export class AccountListComponent implements OnInit {
                 this.accounts = accounts;
             });
     }
-
-    changeRoute(link: string): void {
-        let links: Array<string> = [link];
-        this.router.navigate(links);
-    }
-
 }

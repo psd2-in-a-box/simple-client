@@ -92,3 +92,7 @@ html, body, md-sidenav-container {
 .clickable {
     cursor: pointer;
 }
+
+md-list a.menu-item-button {
+    text-decoration: none;
+}
