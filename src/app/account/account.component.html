@@ -1,4 +1,4 @@
-<md-card class="background">
+<md-card>
     <md-card-header>
         <div md-card-avatar><md-icon color="primary" class="avatar-icon">credit_card</md-icon></div>
         <md-card-title>{{account.name}}</md-card-title>
@@ -8,7 +8,7 @@
         Balance: <span [ngClass]="isNegative(account.balance) ? 'balance-negative' : ''">{{account.balance | number:'1.2-2'}}</span>
     </md-card-content>
 </md-card>
-<md-list class="background">
+<md-list>
     <h3 md-subheader>Transactions</h3>
     <md-list-item *ngFor="let trx of transactions">
         <md-icon md-list-avatar>compare_arrows</md-icon>
