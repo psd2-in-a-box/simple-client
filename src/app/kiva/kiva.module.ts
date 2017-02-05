@@ -21,6 +21,7 @@ import { KivaService } from './kiva.service';
         KivaLoansComponent,
         KivaLendComponent
     ],
+
     providers: [AccountService, KivaService, KivaForecastService]
 })
 export class KivaModule { }
