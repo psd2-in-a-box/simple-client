@@ -1,1 +1,15 @@
-Signup
+<md-card>
+    <md-card-title>Kiva Signup</md-card-title>
+    <md-card-content>
+        Available accounts
+        <md-select placeholder="Select account">
+            <md-option *ngFor="let account of accounts" (onSelect)="select(account)">
+                {{ account.name }}
+            </md-option>
+        </md-select>
+    </md-card-content>
+</md-card>
+<md-card *ngIf="forecast > 0">
+    <md-card-title>Forecast</md-card-title>
+    <md-card-content><h2>{{ forecast | number:'1.2-2' }}</h2></md-card-content>
+</md-card>

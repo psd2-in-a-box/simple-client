@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Account, AccountService } from '../account/account.service';
-import {Router} from "@angular/router";
+import { KivaForecastService } from './kiva-forecast.service';
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-kiva-signup',
@@ -11,8 +12,9 @@ import {Router} from "@angular/router";
 export class KivaSignupComponent implements OnInit {
 
     accounts: Account[] = [];
+    forecast: number = 0;
 
-    constructor(private accountService: AccountService, private router: Router) {
+    constructor(private accountService: AccountService, private forecastService: KivaForecastService, private router: Router) {
     }
 
     ngOnInit() {
@@ -25,6 +27,13 @@ export class KivaSignupComponent implements OnInit {
     changeRoute(link: string): void {
         let links: Array<string> = [link];
         this.router.navigate(links);
+    }
+
+    select(account: Account): void {
+        this.forecastService.getForecast(account)
+            .subscribe(forecast => {
+                this.forecast = forecast;
+            });
     }
 
 }
