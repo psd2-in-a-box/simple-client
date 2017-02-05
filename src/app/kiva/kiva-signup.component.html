@@ -11,5 +11,8 @@
 </md-card>
 <md-card *ngIf="forecast > 0">
     <md-card-title>Forecast</md-card-title>
-    <md-card-content><h2>{{ forecast | number:'1.2-2' }}</h2></md-card-content>
+    <md-card-content>
+        <h2>{{ forecast | number:'1.2-2' }} kr</h2>
+        <p>if you donate "ører" from each transaction in the last month (e.g. 71.28 = 0.72).</p>
+    </md-card-content>
 </md-card>
