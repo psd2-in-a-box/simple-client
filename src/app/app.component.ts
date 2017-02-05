@@ -24,8 +24,8 @@ export class AppComponent {
 
     readonly menuItems: Array<MenuItem> = [
         {icon: 'credit_card', title: 'Accounts', link: '/accounts'},
-        {icon: 'monetization_on', title: 'Transactions', link: ''},
-        {icon: 'directions_bike', title: 'other content', link: ''},
+        {icon: 'monetization_on', title: 'Kiva Loans', link: '/loans'},
+        {icon: 'directions_bike', title: 'Kiva Signup', link: '/signup'},
     ];
 
     readonly customers: Array<Customer> = [
@@ -43,7 +43,7 @@ export class AppComponent {
     getNavigationTitle(): string {
         let title = this.router.url;
         for (let menuItem of this.menuItems) {
-            if (title.indexOf(menuItem.title.toLowerCase()) > -1) {
+            if (title.indexOf(menuItem.link.toLowerCase()) > -1) {
                 return menuItem.title;
             }
         }
