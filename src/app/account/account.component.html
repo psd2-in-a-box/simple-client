@@ -10,9 +10,12 @@
 </md-card>
 <md-list>
     <h3 md-subheader>Transactions</h3>
-    <md-list-item *ngFor="let trx of transactions">
-        <md-icon md-list-avatar>compare_arrows</md-icon>
-        <h4 md-line [ngClass]="isNegative(trx.amount) ? 'balance-negative' : ''">{{trx.amount}}</h4>
-        <p md-line>{{trx.description}}</p>
-    </md-list-item>
+    <div *ngFor="let trx of transactions">
+        <md-list-item>
+            <md-icon md-list-avatar>compare_arrows</md-icon>
+            <h4 md-line [ngClass]="isNegative(trx.amount) ? 'balance-negative' : ''">{{trx.amount}}</h4>
+            <p md-line>{{trx.description}}</p>
+        </md-list-item>
+        <md-divider></md-divider>
+    </div>
 </md-list>
